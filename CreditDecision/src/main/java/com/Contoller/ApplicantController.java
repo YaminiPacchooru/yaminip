@@ -29,18 +29,6 @@ public class ApplicantController {
 		return this. applicantService.addApplicant(applicant); 
 	}
 	 
-
-	
-	@GetMapping(value="/applicant1/{ssnNumber}")
-	public Optional<Applicant> getApplicant(@PathVariable int ssnNumber) {
-		if(ssnNumber==ssnNumber) {
-
-			System.out.println("you already applied.apply after 30 days");
-		}
-		return this.applicantService.getById(ssnNumber);
-
-	}
-	
 	@GetMapping(value="/getCreditScore/{ssnNumber}")
 	public void findCreditScore(@PathVariable int ssnNumber)  {
 		
@@ -55,6 +43,14 @@ public class ApplicantController {
 				System.out.println(creditScore);
 			}
 	}
+
+	@GetMapping(value="/applicant1/{ssnNumber}")
+	public Optional<Applicant> getApplicant(@PathVariable int ssnNumber) {
+		
+		return this.applicantService.getById(ssnNumber);
+
+	}
+	
 	
 }
 
